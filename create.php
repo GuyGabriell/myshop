@@ -1,5 +1,17 @@
 <?php 
 
+
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $database = "myshop";
+
+    // Create a connection
+    $conn = new mysqli($servername, $username, $password, $database);
+
+
+
+
   $name = "";
   $email = "";
   $phone = "";
@@ -41,6 +53,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>myshop</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
   <div class="container my-5">
@@ -90,7 +103,7 @@
           if ( !empty($successMessage) ) {
             echo "
             <div class='row mb-3'>
-                <div class='offset-sm-3 col-sm-6'>
+                <div class='offset-sm-1 col-sm-5'>
                     <div class='alert alert-success alert-dismissible fade show' role='alert'>
                         <strong>$successMessage</strong>
                         <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
