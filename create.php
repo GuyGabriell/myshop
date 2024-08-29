@@ -34,6 +34,8 @@
       }
 
       // Add code here to insert data into your database
+      //add new client to db
+      $sql = "INSERT INTO clients (name, email, phone, address)" . "VALUES ('$name', '$email', '$phone', '$address',)";
 
       $name = "";
       $email = "";
