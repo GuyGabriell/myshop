@@ -35,14 +35,25 @@
 
       // Add code here to insert data into your database
       //add new client to db
-      $sql = "INSERT INTO clients (name, email, phone, address)" . "VALUES ('$name', '$email', '$phone', '$address',)";
+      $sql = "INSERT INTO clients (name, email, phone, address) " . "VALUES ('$name', '$email', '$phone', '$address')";
+
+      $result = $conn->query($sql);
+
+      if (!$result) {
+        $errorMessage = "Invalid query: " . $conn->error;
+        break;
+      }
 
       $name = "";
       $email = "";
       $phone = "";
       $address = "";
 
+
       $successMessage = "Client added correctly";
+
+      header("location: /index.php");
+      exit;
 
     } while (false);
   }
