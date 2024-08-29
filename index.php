@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,11 +8,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 </head>
 <body>
+
   <div class="container my-5">
       <h2>CRUD APP PHP & MYSQL</h2>
       <p>List of Clients.</p>
 
-      <a class="btn btn-primary" href="/views/create.php" role="button">New client</a>
+      <a class="btn btn-primary" href="create.php" role="button">New client</a>
       <br>
 
       <table class="table mt-2">
@@ -28,7 +30,9 @@
         </thead>
 
         <tbody>
-          <?php 
+         
+ <?php 
+
             $servername = "localhost";
             $username = "root";
             $password = "";
@@ -68,9 +72,12 @@
               ";
             }
             $conn->close();
+
+            
           ?>
         </tbody>
       </table>
   </div>
-</body>
+  </body>
 </html>
+

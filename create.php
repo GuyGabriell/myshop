@@ -57,31 +57,31 @@
       }
     ?>
 
-    <form method="POST">
+    <form class="mt-4" method="POST">
         <div class="row mb-3">
-            <label class="col-sm-3 col-form-label">Name:</label>
-            <div class="col-sm-6">
+            <label class="col-sm-1 col-form-label">Name:</label>
+            <div class="col-sm-5">
               <input type="text" class="form-control" name="name" value="<?= htmlspecialchars($name); ?>">
             </div>
         </div>
 
         <div class="row mb-3">
-            <label class="col-sm-3 col-form-label">Email:</label>
-            <div class="col-sm-6">
+            <label class="col-sm-1 col-form-label">Email:</label>
+            <div class="col-sm-5">
               <input type="text" class="form-control" name="email" value="<?= htmlspecialchars($email); ?>">
             </div>
         </div>
 
         <div class="row mb-3">
-            <label class="col-sm-3 col-form-label">Phone:</label>
-            <div class="col-sm-6">
+            <label class="col-sm-1 col-form-label">Phone:</label>
+            <div class="col-sm-5">
               <input type="text" class="form-control" name="phone" value="<?= htmlspecialchars($phone); ?>">
             </div>
         </div>
 
         <div class="row mb-3">
-            <label class="col-sm-3 col-form-label">Address:</label>
-            <div class="col-sm-6">
+            <label class="col-sm-1 col-form-label">Address:</label>
+            <div class="col-sm-5">
               <input type="text" class="form-control" name="address" value="<?= htmlspecialchars($address); ?>">
             </div>
         </div>
@@ -101,11 +101,11 @@
           }
         ?>
 
-        <div class="row mb-3">
-            <div class="offset-sm-3 col-sm-3 d-grid">
+        <div class="row mb-2">
+            <div class="offset-sm-1 col-sm-2 d-grid">
               <button type="submit" class="btn btn-primary">Submit</button>
             </div>
-            <div class="col-sm-3 d-grid">
+            <div class="col-sm-2 d-grid">
               <a class="btn btn-outline-primary" href="/myshop/index.php" role="button">Cancel</a>
             </div>
         </div>
