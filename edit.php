@@ -64,10 +64,20 @@
        $sql = "UPDATE clients" . 
         "SET name = '$name', email = '$email', phone = '$phone', address = '$address' " . 
         "WHERE id = $id"; 
+          //execute the query
+        $result = $connection->query($sql);
+
+        //now check if the query has been executed correctly 
+          
+      if (!$result) {
+        $errorMessage = "Invalid query: " . $conn->error;
+        break;
+      }
+
 
     } while (true);
 
-    
+
   }
  
 
