@@ -11,7 +11,7 @@
   $conn = new mysqli($servername, $username, $password, $database);
 
 
-  
+
   $id = "";
   $name = "";
   $email = "";
@@ -26,11 +26,17 @@
       if ( !isset($_GET["id"]) ) {
         header("location: /index.php");
       exit;
-
       }
+
+      $id = $_GET["id"];
+      //read the row of the selected client from the db
+      $sql = "SELECT * FROM clients WHERE id = $id";
+      $result = $connection->query($sql);
+      $row = $result->fetch_assoc();
 
   }else {
     //POST METHOD:the post method update the clients data 
+    
   }
 
 ?>
