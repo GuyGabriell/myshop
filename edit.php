@@ -44,9 +44,11 @@
         $phone = $_POST["phone"];
         $address = $_POST["address"];
 
-  }else {
-    //POST METHOD:the post method update the clients data
-   $id = $_GET["id"];
+  }
+
+  else {
+      //POST METHOD:the post method update the clients data
+   $id = $_POST["id"];
    $name = $_POST["name"];
    $email = $_POST["email"];
    $phone = $_POST["phone"];
@@ -57,16 +59,17 @@
      if ( empty($name) || empty($email) || empty($phone) || empty($address) ) {
         $errorMessage = "All the fields are required";
         break;
+   } 
 
-        $sql = "UPDATE clients" . 
-        "SET name = '$name', email = '$email', phone = '$phone', address = '$address', " . 
+       $sql = "UPDATE clients" . 
+        "SET name = '$name', email = '$email', phone = '$phone', address = '$address' " . 
         "WHERE id = $id"; 
 
-   } while (true);
+    } while (true);
 
+    
   }
-  
-}
+ 
 
 ?>
 <!DOCTYPE html>
