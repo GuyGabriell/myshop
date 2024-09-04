@@ -135,7 +135,7 @@
               <button type="submit" class="btn btn-primary">Submit</button>
             </div>
             <div class="col-sm-2 d-grid">
-              <a class="btn btn-outline-primary" href="/myshop/index.php" role="button">Cancel</a>
+              <a class="btn btn-outline-primary" href="/index.php" role="button">Cancel</a>
             </div>
         </div>
     </form>
