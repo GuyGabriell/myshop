@@ -105,7 +105,7 @@ do {
     ?>
 
     <form class="mt-4" method="POST">
-      <input type="hidden" value="<?php echo $id; ?>">
+      <input type="hidden" name="id" value="<?php echo $id; ?>">
         <div class="row mb-3">
             <label class="col-sm-1 col-form-label">Name:</label>
             <div class="col-sm-5">
