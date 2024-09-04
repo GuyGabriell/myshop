@@ -1,87 +1,85 @@
 
-<?php 
+<?php
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "myshop";
+
+// Create a connection
+$connection = new mysqli($servername, $username, $password, $database);
 
 
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $database = "myshop";
+$id = "";
+$name = "";
+$email = "";
+$phone = "";
+$address = "";
 
-  // Create a connection
-  $conn = new mysqli($servername, $username, $password, $database);
+$errorMessage = "";
+$successMessage = "";
 
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+//GET METHOD: shows the data of the client 
+if (!isset($_GET["id"])){
+  header("location: /myshop/index.php");
+  exit;
+}
 
+$id = $_GET["id"];
 
-  $id = "";
-  $name = "";
-  $email = "";
-  $phone = "";
-  $address = "";
+//read client data from the db
+$sql = "SELECT * FROM clients WHERE id=$id";
+$result = $connection->query($sql);
+$row = $result->fetch_assoc();
 
-  $errorMessage = "";
-  $successMessage = "";
+if (!$row){
+  header("loaction: /myshop/index.php");
+  exit;
+}
 
-  if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    //GET METHOD:the get method show the clients data 
-      if ( !isset($_GET["id"]) ) {
-        header("location: /index.php");
-        exit;
-      }
+$name = $row["name"];
+$email = $row["email"];
+$phone = $row["phone"];
+$address = $row["address"];
 
-      $id = $_GET["id"];
-      //read the row of the selected client from the db
-      $sql = "SELECT * FROM clients WHERE id = $id";
-      $result = $connection->query($sql);
-      $row = $result->fetch_assoc();
+}
+else {
+   //POST METHOD: Update the data of the client
 
-      if (!$row) {
-        header("location: /index.php");
-        exit;
-      }
+$id = $_POST["id"];  
+$name = $_POST["name"];
+$email = $_POST["email"];
+$phone = $_POST["phone"];
+$address = $_POST["address"]; 
 
-        $name = $_POST["name"];
-        $email = $_POST["email"];
-        $phone = $_POST["phone"];
-        $address = $_POST["address"];
-
-  }
-
-  else {
-      //POST METHOD:the post method update the clients data
-   $id = $_POST["id"];
-   $name = $_POST["name"];
-   $email = $_POST["email"];
-   $phone = $_POST["phone"];
-   $address = $_POST["address"];
-
-   do {
-
-     if ( empty($name) || empty($email) || empty($phone) || empty($address) ) {
+do {
+    if ( empty($name) || empty($email) || empty($phone) || empty($address) ) {
         $errorMessage = "All the fields are required";
         break;
-   } 
+    }
 
-       $sql = "UPDATE clients" . 
-        "SET name = '$name', email = '$email', phone = '$phone', address = '$address' " . 
-        "WHERE id = $id"; 
-          //execute the query
-        $result = $connection->query($sql);
+    $sql = "UPDATE clients " . 
+    "SET name = '$name', email = '$email', phone = '$phone', address = '$address' " . 
+    "WHERE id = $id";
 
-        //now check if the query has been executed correctly 
-          
-      if (!$result) {
-        $errorMessage = "Invalid query: " . $conn->error;
-        break;
-      }
+    if (!$result){
+      $errorMessage = "Inlavid query: " . $connection->error;
+      break;
 
+    }
 
-    } while (true);
+    $successMessage = "Client updated correctly";
 
+    header("location: /myshop/index.php");
+    exit;
 
-  }
+  }while (true);
+
+}
  
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -107,32 +105,32 @@
     ?>
 
     <form class="mt-4" method="POST">
-      <input type="hidden" value="<?= htmlspecialchars($id); ?>">
+      <input type="hidden" value="<?php echo $id; ?>">
         <div class="row mb-3">
             <label class="col-sm-1 col-form-label">Name:</label>
             <div class="col-sm-5">
-              <input type="text" class="form-control" name="name" value="<?= htmlspecialchars($name); ?>">
+              <input type="text" class="form-control" name="name" value="<?php echo $name; ?>">
             </div>
         </div>
 
         <div class="row mb-3">
             <label class="col-sm-1 col-form-label">Email:</label>
             <div class="col-sm-5">
-              <input type="text" class="form-control" name="email" value="<?= htmlspecialchars($email); ?>">
+              <input type="text" class="form-control" name="email" value="<?php echo $email; ?>">
             </div>
         </div>
 
         <div class="row mb-3">
             <label class="col-sm-1 col-form-label">Phone:</label>
             <div class="col-sm-5">
-              <input type="text" class="form-control" name="phone" value="<?= htmlspecialchars($phone); ?>">
+              <input type="text" class="form-control" name="phone" value="<?php echo $phone; ?>">
             </div>
         </div>
 
         <div class="row mb-3">
             <label class="col-sm-1 col-form-label">Address:</label>
             <div class="col-sm-5">
-              <input type="text" class="form-control" name="address" value="<?= htmlspecialchars($address); ?>">
+              <input type="text" class="form-control" name="address" value="<?php echo $address; ?>">
             </div>
         </div>
 

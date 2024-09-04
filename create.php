@@ -59,6 +59,9 @@
   }
 ?>
 
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,28 +90,28 @@
         <div class="row mb-3">
             <label class="col-sm-1 col-form-label">Name:</label>
             <div class="col-sm-5">
-              <input type="text" class="form-control" name="name" value="<?= htmlspecialchars($name); ?>">
+              <input type="text" class="form-control" name="name" value="<?php echo $name; ?>">
             </div>
         </div>
 
         <div class="row mb-3">
             <label class="col-sm-1 col-form-label">Email:</label>
             <div class="col-sm-5">
-              <input type="text" class="form-control" name="email" value="<?= htmlspecialchars($email); ?>">
+              <input type="text" class="form-control" name="email" value="<?php echo $email; ?>">
             </div>
         </div>
 
         <div class="row mb-3">
             <label class="col-sm-1 col-form-label">Phone:</label>
             <div class="col-sm-5">
-              <input type="text" class="form-control" name="phone" value="<?= htmlspecialchars($phone); ?>">
+              <input type="text" class="form-control" name="phone" value="<?php echo $phone; ?>">
             </div>
         </div>
 
         <div class="row mb-3">
             <label class="col-sm-1 col-form-label">Address:</label>
             <div class="col-sm-5">
-              <input type="text" class="form-control" name="address" value="<?= htmlspecialchars($address); ?>">
+              <input type="text" class="form-control" name="address" value="<?php echo $address; ?>">
             </div>
         </div>
 
@@ -139,3 +142,4 @@
   </div>
 </body>
 </html>
+
