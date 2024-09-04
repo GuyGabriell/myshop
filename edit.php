@@ -22,7 +22,7 @@ $successMessage = "";
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 //GET METHOD: shows the data of the client 
 if (!isset($_GET["id"])){
-  header("location: /myshop/index.php");
+  header("location: /index.php");
   exit;
 }
 
@@ -34,7 +34,7 @@ $result = $connection->query($sql);
 $row = $result->fetch_assoc();
 
 if (!$row){
-  header("loaction: /myshop/index.php");
+  header("loaction: /index.php");
   exit;
 }
 
@@ -71,7 +71,7 @@ do {
 
     $successMessage = "Client updated correctly";
 
-    header("location: /myshop/index.php");
+    header("location: /index.php");
     exit;
 
   }while (true);
@@ -154,7 +154,7 @@ do {
               <button type="submit" class="btn btn-primary">Submit</button>
             </div>
             <div class="col-sm-2 d-grid">
-              <a class="btn btn-outline-primary" href="/myshop/index.php" role="button">Cancel</a>
+              <a class="btn btn-outline-primary" href="/index.php" role="button">Cancel</a>
             </div>
         </div>
     </form>
