@@ -63,6 +63,8 @@ do {
     "SET name = '$name', email = '$email', phone = '$phone', address = '$address' " . 
     "WHERE id = $id";
 
+  
+
     if (!$result){
       $errorMessage = "Inlavid query: " . $connection->error;
       break;
